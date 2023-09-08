@@ -54,6 +54,7 @@
   - [[#syntax-check][syntax check]]
   - [[#move-line][Move line]]
   - [[#subword-mode-with-evil][subword-mode with evil]]
+  - [[#treemacs][treemacs]]
 - [[#project][Project]]
   - [[#check-for-alternatives][Check for alternatives.]]
 - [[#rainbow][Rainbow]]
@@ -63,9 +64,13 @@
   - [[#vterm-toggle][Vterm-toggle]]
 - [[#theme][Theme]]
 - [[#whole-line-or-region][Whole line or region]]
+- [[#writing][Writing]]
+  - [[#spelling][Spelling]]
+  - [[#grammar][Grammar]]
 - [[#diminish-minor-modes][Diminish minor modes]]
 - [[#learn-how-kill-ring-and-yanking-works-in-evil-mode][Learn how kill-ring and yanking works in evil-mode]]
   - [[#popup-kill-ring][popup-kill-ring]]
+- [[#dired-maybe][dired (maybe?)]]
 
 * Init
 ** Package Manager
@@ -133,6 +138,9 @@
   ;;(elpaca nil (message "deferred"))
 #+end_src
 ** Dashboard
+- DT's config for gives ivy-errors for some reason.
+- For DT's config, put the =dashboard-modify-heading-icons= in =:config= and not =:init=. [[https://github.com/emacs-dashboard/emacs-dashboard/issues/468][Github issue for reference.]]
+- yukimacs config for dashboard gives some other error which also prevents the daemon from starting.
 #+begin_src emacs-lisp
   (use-package dashboard
     :preface
@@ -147,7 +155,7 @@
                                       (bookmarks . "book")))
     ;(setq dashboard-banner-logo-title "Y U K I M A C S")
     (setq dashboard-banner-logo-title "\n")
-    ;;(setq dashboard-startup-banner "~/.emacs.d/img/yukimacs-logo-classic-alt.png")
+    ;; (setq dashboard-startup-banner "~/.emacs.d/img/yukimacs-logo-classic-alt.png")
     (setq dashboard-startup-banner 'logo)
     (setq dashboard-center-content t)
     ;(setq dashboard-init-info (format "Loaded in %s" (emacs-init-time)))
@@ -474,24 +482,24 @@ just loading the user-init-file once does not work properly.
 ** Setting the font face
 #+begin_src emacs-lisp
   (set-face-attribute 'default nil
-		      :font "JetBrains Mono"
-		      :height 110
-		      :weight 'medium)
+                      :font "JetBrains Mono"
+                      :height 110
+                      :weight 'medium)
   (set-face-attribute 'variable-pitch nil
-		      :font "Ubuntu"
-		      :height 120
-		      :weight 'medium)
+                      :font "Ubuntu"
+                      :height 120
+                      :weight 'medium)
   (set-face-attribute 'fixed-pitch nil
-		      :font "JetBrains Mono"
-		      :height 110
-		      :weight 'medium)
+                      :font "JetBrains Mono"
+                      :height 110
+                      :weight 'medium)
   ;; Makes commented text and keywords italics.
   ;; This is working in emacsclient but not emacs.
   ;; Your font must have an italic face available.
   (set-face-attribute 'font-lock-comment-face nil
-		      :slant 'italic)
+                      :slant 'italic)
   (set-face-attribute 'font-lock-keyword-face nil
-		      :slant 'italic)
+                      :slant 'italic)
 
   ;; This sets the default font on all graphical frames created after restarting Emacs.
   ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
@@ -675,6 +683,7 @@ Install =luacheck= from your Linux distro's repositories for flycheck to work co
 #+end_src
 *** TODO Fix the hook. [[https://github.com/emacsfodder/move-text][Github Page]]
 ** TODO subword-mode with evil
+** TODO treemacs
 * Project
 [[https://github.com/bbatsov/projectile][Projectile]] is a project interaction library for Emacs.
 #+begin_src emacs-lisp
@@ -759,6 +768,10 @@ Kill or save the current line(if no region is selected) or the selected region.
   (use-package whole-line-or-region
     :init (whole-line-or-region-global-mode 1))
 #+end_src
+* Writing
+** TODO Spelling
+** TODO Grammar
 * TODO Diminish minor modes
 * TODO Learn how kill-ring and yanking works in evil-mode
 ** TODO popup-kill-ring
+* TODO dired (maybe?)
